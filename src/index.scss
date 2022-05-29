@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  background-color: #062c30 !important;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  --blue: #419fd9;
+  --sidebar-color: #293a4c;
+  --secondary: #8393a3;
+}

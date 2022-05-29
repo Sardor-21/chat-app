@@ -1,0 +1,10 @@
+.sidebar {
+  padding: 20px 0;
+  text-align: center;
+  background-color: var(--sidebar-color);
+  .bars {
+    width: 100%;
+    cursor: pointer;
+    fill: var(--secondary);
+  }
+}

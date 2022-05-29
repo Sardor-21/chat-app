@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Chat from "./pages/chat/chat";
+import Login from "./pages/login/login";
+import Register from "./pages/register/register";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  // const [name, setName] = useState("");
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   socket.emit("user_connected", name);
+  // };
+  // const handleOnchange = (e) => {
+  //   setName(e.target.value);
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastContainer />
+      <Routes>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Chat />} />
+      </Routes>
+    </>
   );
 }
 
