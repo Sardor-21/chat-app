@@ -15,6 +15,7 @@ const Chat = () => {
   const currentUser = JSON.parse(localStorage.getItem("user"));
   const [changedUser, setChangedUser] = useState(undefined);
   const [leftMenu, setLeftMenu] = useState(false);
+  console.log(currentUser);
   useEffect(() => {
     if (!currentUser) {
       navigate("/login");
@@ -60,28 +61,32 @@ const Chat = () => {
   return (
     <div className="chat">
       <div className="container chat-container">
-        <Menu
-          currentUser={currentUser}
-          leftMenu={leftMenu}
-          setLeftMenu={setLeftMenu}
-        />
-        <Sidebar setLeftMenu={setLeftMenu} />
-        <Contact
-          contact={contact}
-          changeUser={changeUser}
-          changedUser={changedUser}
-        />
-        <div className="right">
-          {changedUser === undefined ? (
-            <Welcome currentUser={currentUser} />
-          ) : (
-            <ChatContent
-              changedUser={changedUser}
+        {currentUser && (
+          <>
+            <Menu
               currentUser={currentUser}
-              socket={socket}
+              leftMenu={leftMenu}
+              setLeftMenu={setLeftMenu}
             />
-          )}
-        </div>
+            <Sidebar setLeftMenu={setLeftMenu} />
+            <Contact
+              contact={contact}
+              changeUser={changeUser}
+              changedUser={changedUser}
+            />
+            <div className="right">
+              {changedUser === undefined ? (
+                <Welcome currentUser={currentUser} />
+              ) : (
+                <ChatContent
+                  changedUser={changedUser}
+                  currentUser={currentUser}
+                  socket={socket}
+                />
+              )}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
